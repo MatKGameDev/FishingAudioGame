@@ -5,8 +5,8 @@
 #include "TTK/TTKContext.h"
 #include "Logging.h"
 #include "TTK/GraphicsUtils.h"
-#include "TTK/Camera.h"
-#include "AudioEngine.h"
+
+#include "Game.h"
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -95,48 +95,12 @@ int main() {
 	TTK::Graphics::SetBackgroundColour(0.5f, 0.5f, 0.5f);
 	TTK::Graphics::SetDepthEnabled(true);
 
-	TTK::Camera camera;
-	camera.cameraPosition = glm::vec3(0, 0, -10);
-	camera.forwardVector = glm::vec3(0, 0, 1);
-
-	glm::vec2 lastMousePos, mousePos;
-	lastMousePos = TTK::Input::GetMousePos();
-
 	TTK::Graphics::InitImGUI(window);
-
-	TTK::SpriteSheetQuad mario;
-	mario.SliceSpriteSheet("mario.png", 1, 1, 0.5f);
-	TTK::SpriteSheetQuad yoshi;
-	yoshi.SliceSpriteSheet("yoshi.png", 1, 1, 0.5f);
-	TTK::SpriteSheetQuad* currentSprite = &mario;
 	
 	float lastFrame = glfwGetTime();
 	
-	////// Sound Stuff //////
-
-	//// Make an AudioEngine object 
-	AudioEngine audioEngine;
-
-	//// Init AudioEngine (Don't forget to shut down and update)
-	audioEngine.Init();
-
-	//// Load a bank (Use the flag FMOD_STUDIO_LOAD_BANK_NORMAL)
-	audioEngine.LoadBank("Master", FMOD_STUDIO_LOAD_BANK_NORMAL);
-
-	//// Load an event
-	audioEngine.LoadEvent("Music", "{13f73348-5181-4c6b-838a-4ef9f8ad1b56}");
-
-	//// Play the event
-	audioEngine.PlayEvent("Music");
-
-	//// Make some Vectors to use
-	glm::vec3 startPosition = { 0, 0, -10 };
-	glm::vec3 leftPosition = { -10, 0, -10 }; 
-	glm::vec3 rightPosition = { 10, 0, -10};
-
-	//// Set initial position  
-	audioEngine.SetEventPosition("Music", startPosition);
-	
+	Game* game = new Game();
+	game->Init();
 
 	// Run as long as the window is open
 	while (!glfwWindowShouldClose(window)) {
@@ -149,42 +113,8 @@ int main() {
 		// Clear our screen every frame
 		TTK::Graphics::ClearScreen();
 		
-		static bool isOnYoshi = false;
-		if (TTK::Input::GetKeyPressed(TTK::KeyCode::Q)) {
-			isOnYoshi = !isOnYoshi;
+		game->Update(dt);
 
-			if (isOnYoshi) {
-
-				//// Set Position
-				audioEngine.SetEventPosition("Music", leftPosition);
-				currentSprite = &yoshi;
-				
-			}
-			else {
-				
-				//// Set Position
-				audioEngine.SetEventPosition("Music", rightPosition);
-
-				currentSprite = &mario;
-			}
-		}
-		
-
-		//// Update Audio Engine
-		
-		audioEngine.Update();
-		
-
-		camera.update();
-		TTK::Graphics::SetCameraMatrix(camera.ViewMatrix);
-
-		currentSprite->Update(dt);
-		currentSprite->Draw(
-			TTK::Graphics::GetViewProjection() *
-			glm::translate(glm::mat4(1.0f), glm::vec3(-150, 150, 0.0f)) * 
-			glm::scale(glm::mat4(1.0f), glm::vec3(100.0f, -100.0f, 1.0f))
-		);
-		
 		TTK::Graphics::EndFrame();
 		TTK::Graphics::BeginGUI();
 		TTK::Graphics::EndGUI();
@@ -195,15 +125,12 @@ int main() {
 		TTK::Input::Poll();
 
 		lastFrame = thisFrame;
-
-
 	}
 
+	game->ShutDown();
+	delete game;
+
 	glfwTerminate();
-
-
-	//// Shut down audio engine
-	audioEngine.Shutdown();
 
 	TTK::Graphics::ShutdownImGUI();
 	TTK::Input::Uninitialize();
@@ -212,6 +139,3 @@ int main() {
 
 	return 0;
 }
-
-
-

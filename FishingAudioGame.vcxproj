@@ -103,9 +103,15 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Fish.h" />
+    <ClInclude Include="src\FishManager.h" />
     <ClInclude Include="src\AudioEngine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="src\Fish.cpp" />
+    <ClCompile Include="src\FishManager.cpp" />
     <ClCompile Include="src\AudioEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
