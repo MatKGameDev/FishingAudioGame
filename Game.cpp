@@ -31,8 +31,6 @@ void Game::Init()
 	//set position
 	//audioEngine.SetEventPosition("Music", startPosition);
 
-	playerPos = glm::vec3(0.0f, 1.0f, 0.0f); //put player slightly above the water
-
 	//TODO: play tutorial sound clip
 
 }
@@ -153,7 +151,7 @@ void Game::CastReel()
 
 	//set bobber position
 	bobberPos = castDirection * (float)castDistance;
-	bobberPos.y = 0.0f; //should already be 0 but just to be safe
+	bobberPos.y = -1.0f; //put the bobber a bit below the player since that's how it would normally be when fishing
 
 	//TODO: play casting sound
 

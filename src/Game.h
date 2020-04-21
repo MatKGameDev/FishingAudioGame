@@ -34,7 +34,6 @@ private:
 	AudioEngine  audioEngine;
 	FishManager* fishManager;
 
-	glm::vec3 playerPos;
 	glm::vec3 bobberPos;
 
 	const int MIN_CAST_DISTANCE = 1;
