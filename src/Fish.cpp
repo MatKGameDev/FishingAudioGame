@@ -23,6 +23,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			escapeTime  = 1.5f;
 			minDistance = 0;
 
+			rarity = Rarity::Common;
+
 			break;
 		}
 
@@ -32,6 +34,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			stamina     = 5.0f;
 			escapeTime  = 1.5f;
 			minDistance = 0;
+
+			rarity = Rarity::Common;
 
 			break;
 		}
@@ -43,6 +47,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			escapeTime  = 1.3f;
 			minDistance = 0;
 
+			rarity = Rarity::Common;
+
 			break;
 		}
 
@@ -52,6 +58,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			stamina     = 7.0f;
 			escapeTime  = 1.3f;
 			minDistance = 3;
+
+			rarity = Rarity::Uncommon;
 
 			break;
 		}
@@ -63,6 +71,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			escapeTime  = 1.1f;
 			minDistance = 6;
 
+			rarity = Rarity::Rare;
+
 			break;
 		}
 
@@ -72,6 +82,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			stamina     = 10.0f;
 			escapeTime  = 0.8f;
 			minDistance = 8;
+
+			rarity = Rarity::SuperRare;
 
 			break;
 		}
@@ -83,6 +95,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			escapeTime  = 0.8f;
 			minDistance = 8;
 
+			rarity = Rarity::SuperRare;
+
 			break;
 		}
 
@@ -93,6 +107,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			escapeTime  = 0.5f;
 			minDistance = 10;
 
+			rarity = Rarity::ExtremelyRare;
+
 			break;
 		}
 
@@ -102,6 +118,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 			stamina     = 15.0f;
 			escapeTime  = 0.3f;
 			minDistance = 13;
+
+			rarity = Rarity::ExtremelyRare;
 
 			break;
 		}
