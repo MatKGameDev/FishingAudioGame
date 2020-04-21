@@ -12,6 +12,8 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 	if (rand() % 2)
 		moveDirection.x *= -1;
 
+	speed = 5.0f;
+
 	switch (fishType)
 	{
 		case FishType::Sunfish:
@@ -108,5 +110,7 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 
 void Fish::Update(float dt)
 {
+	stamina -= dt;
 
+	position += speed * moveDirection * dt;
 }

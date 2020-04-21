@@ -29,7 +29,7 @@ public:
 	float weight;
 	float stamina;
 	float escapeTime;
-
+	float speed;
 	int minDistance;
 
 	glm::vec3 moveDirection;
