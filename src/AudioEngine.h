@@ -76,7 +76,6 @@ public:
 	void GetEventParameter(const std::string& strEventName, const std::string& strEventParameter, float* parameter);
 	void SetEventParameter(const std::string& strEventName, const std::string& strParameterName, float fValue);
 	void SetEventPosition(const std::string& strEventName, const glm::vec3 vPosition);
-	void SetEventVelocity(const std::string& strEventName, const glm::vec3 vVelocity);
 	//void StopAllChannels();
 	void SetChannel3dPosition(int nChannelId, const glm::vec3& vPosition);
 	void SetChannelVolume(int nChannelId, float fVolumedb); 

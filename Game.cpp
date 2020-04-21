@@ -28,10 +28,12 @@ void Game::Init()
 	//play event
 	audioEngine.PlayEvent("Background");
 
-	//set position
-	//audioEngine.SetEventPosition("Music", startPosition);
+	//play tutorial
+	//audioEngine.LoadEvent("Tutorial", "{c1f0bcd3-dace-4da2-961a-1b8769a6733e}");	
+	//audioEngine.PlayEvent("Tutorial");
 
-	//TODO: play tutorial sound clip
+	//lower background volume
+	audioEngine.SetEventParameter("Background", "Cast", 1.0f);
 
 }
 
@@ -45,20 +47,32 @@ void Game::Update(float dt)
 		{
 			tutorialCountdown -= dt;
 			if (tutorialCountdown < 0.0f)
+			{
+				audioEngine.SetEventParameter("Background", "Cast", 0.0f);
 				ChangeToWaitingToCast();
+			}
 
 			break;
 		}
 
 		case GameState::WaitingToCast:
 		{
+			audioEngine.SetEventParameter("Background", "Cast", 0.0f);
+			//get random cast distance
 			if (isCasting)
 			{
+				audioEngine.SetEventParameter("Background", "Cast", 1.0f);
+				 
 				castCountdown -= dt;
 				if (castCountdown < 0.0f)
 				{
-					ChangeToWaitingForBite();
+					audioEngine.SetEventParameter("Casting", "isLanded", 1.0f);
+					audioEngine.LoadEvent("BobberBloop", "{de350efe-1efa-4769-8aae-7edd49452c6a}");
+					audioEngine.SetEventPosition("BobberBloop", bobberPos);
+					audioEngine.SetEventParameter("BobberBloop", "Distance", castDistance);
+					audioEngine.PlayEvent("BobberBloop");
 
+					ChangeToWaitingForBite();
 					//TODO: play bloop sound from the bobber hitting the water at bobberPos
 
 				}
@@ -78,6 +92,7 @@ void Game::Update(float dt)
 
 		case GameState::WaitingForBite:
 		{
+			
 			if (isBite)
 			{
 				if (TTK::Input::GetKeyPressed(TTK::KeyCode::Space))
@@ -93,7 +108,8 @@ void Game::Update(float dt)
 					waitBeforeCastingCountdown = 5.0f; //add a brief delay before the player can cast again to let the voice line play
 					ChangeToWaitingToCast();
 
-					//TODO: player fish got away voice line
+					audioEngine.LoadEvent("FishAway", "{ddc97946-a268-4b10-a950-5237c4225be4}");
+					audioEngine.PlayEvent("FishAway");
 
 				}
 			}
@@ -106,7 +122,9 @@ void Game::Update(float dt)
 					fishManager->SpawnRandomFish(bobberPos, castDistance);
 					fishGotAwayTimer = fishManager->activeFish->escapeTime;
 
-					//TODO: play bite sound effect at bobberPos
+					audioEngine.LoadEvent("FishBite", "{2d2893a7-ba57-4e50-ba84-f228d204c456}");
+					audioEngine.SetEventPosition("FishBite", bobberPos);
+					audioEngine.PlayEvent("FishBite");
 
 				}
 			}
@@ -116,8 +134,62 @@ void Game::Update(float dt)
 
 		case GameState::Reeling:
 		{
+		
+			float tension = 1 / (fishManager->activeFish->weight * 1.0f) + tensionTime; //multiply by players pull force
+
+			if (TTK::Input::GetKeyDown(TTK::KeyCode::Space))
+			{
+				tensionTime += dt;
+				audioEngine.SetEventParameter("Reeling", "Reeling", 0.0f);
+				audioEngine.SetEventParameter("Reeling", "Tension", tension);
+				glm::vec3 directionToPlayer = fishManager->activeFish->position;
+				fishManager->activeFish->position += directionToPlayer * 15.0f * dt; //TODO Maybe change player pull force here
+
+				if (fishManager->activeFish->stamina <= 0){}
+				else if (tension >= maxTension)
+				{
+					audioEngine.LoadEvent("LineBreak", "{3577e4a9-b01b-4702-95bd-f17129fdf21c}");
+					audioEngine.PlayEvent("LineBreak");
+
+					audioEngine.LoadEvent("FishAway", "{ddc97946-a268-4b10-a950-5237c4225be4}");
+					audioEngine.PlayEvent("FishAway");
+
+					waitBeforeCastingCountdown = 5.0f;
+					ChangeToWaitingToCast();
+				}
+
+			}
+			else
+			{
+				if (fishManager->activeFish->stamina > 0)
+				{
+					fishManager->activeFish->position += fishManager->activeFish->moveDirection * fishManager->activeFish->speed * dt;
+					audioEngine.SetEventParameter("Reeling", "Swimming", 0.0f);
+				}
+				
+				audioEngine.SetEventParameter("Reeling", "Tension", tension);
+				tensionTime -= dt;
+				if (tensionTime < 0)
+					tensionTime = 0;
+			}
+
+			if (glm::sqrt(glm::pow(fishManager->activeFish->position.x - 1.0f, 2) + glm::pow(fishManager->activeFish->position.y - 1.0f, 2) + glm::pow(fishManager->activeFish->position.z - 1.0f, 2)) < 0.5f)
+			{
+				ChangeToFishCaught();
+			}
 
 			break;
+		}
+
+		case GameState::FishCaught:
+		{
+			audioEngine.StopEvent("Reeling");
+
+			audioEngine.LoadEvent("FishCaught", "{82fd2cf2-8ad4-4952-83a0-9606197aff7b}");
+			audioEngine.PlayEvent("FishCaught");
+
+			waitBeforeCastingCountdown = 5.0f;
+			ChangeToWaitingToCast();
 		}
 	}
 
@@ -132,7 +204,6 @@ void Game::ShutDown()
 
 void Game::CastReel()
 {
-	castCountdown = CAST_TIME;
 	isCasting     = true;
 
 	//cast forward, with the x direction being random
@@ -146,20 +217,23 @@ void Game::CastReel()
 
 	castDirection = glm::normalize(castDirection);
 
-	//get random cast distance
-	castDistance = rand() % (MAX_CAST_DISTANCE - MIN_CAST_DISTANCE + 1) + MIN_CAST_DISTANCE;
 
 	//set bobber position
 	bobberPos = castDirection * (float)castDistance;
 	bobberPos.y = -1.0f; //put the bobber a bit below the player since that's how it would normally be when fishing
 
-	//TODO: play casting sound
+	audioEngine.SetEventParameter("Background", "Cast", 1.0f);
+	audioEngine.LoadEvent("Casting", "{141eef9f-0ca3-42a1-82da-2a39f444e73c}");
+	audioEngine.PlayEvent("Casting");
 
 }
 
 void Game::ChangeToWaitingToCast()
 {
 	gameState = GameState::WaitingToCast;
+
+	castDistance = rand() % (MAX_CAST_DISTANCE - MIN_CAST_DISTANCE + 1) + MIN_CAST_DISTANCE;
+	castCountdown =  1 / castDistance * 18 + 1;
 
 	isCasting = false;
 }
@@ -179,7 +253,14 @@ void Game::ChangeToWaitingForBite()
 
 void Game::ChangeToReeling()
 {
-	gameState = GameState::WaitingForBite;
+	gameState = GameState::Reeling;
 
+	audioEngine.LoadEvent("Reeling", "{22cfbe7c-99c6-4a5d-936d-52c58bd9be59}"); //almost everything is handled inside of fmod
+	audioEngine.PlayEvent("Reeling");
 
+}
+
+void Game::ChangeToFishCaught()
+{
+	gameState = GameState::FishCaught;
 }

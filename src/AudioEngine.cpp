@@ -227,43 +227,22 @@ void AudioEngine::SetEventParameter(const std::string& strEventName, const std::
 
 void AudioEngine::SetEventPosition(const std::string& strEventName, const glm::vec3 vPosition)
 {
-	// Get instance for map
 	auto tFoundIt = implementation->mEvents.find(strEventName);
 	if (tFoundIt == implementation->mEvents.end())
 		return;
 
-	// Temp Object
-	FMOD_3D_ATTRIBUTES newAttributes;
 
-	// Get attribute from event
+	//Get pointer to current attributes
+	FMOD_3D_ATTRIBUTES newAttributes;
 	AudioEngine::ErrorCheck(tFoundIt->second->get3DAttributes(&newAttributes));
 
-	// Set the new position
+	//Set position on new attributes
 	newAttributes.position = VectorToFmod(vPosition);
-	
-	// Set new attribute on event
+
+	//Put new attributes back into eventMap
 	AudioEngine::ErrorCheck(tFoundIt->second->set3DAttributes(&newAttributes));
 }
 
-void AudioEngine::SetEventVelocity(const std::string& strEventName, const glm::vec3 vVelocity)
-{
-	// Get instance for map
-	auto tFoundIt = implementation->mEvents.find(strEventName);
-	if (tFoundIt == implementation->mEvents.end())
-		return;
-
-	// Temp Object
-	FMOD_3D_ATTRIBUTES newAttributes;
-
-	// Get attribute from event
-	AudioEngine::ErrorCheck(tFoundIt->second->get3DAttributes(&newAttributes));
-
-	// Set the new position
-	newAttributes.velocity = VectorToFmod(vVelocity);
-
-	// Set new attribute on event
-	AudioEngine::ErrorCheck(tFoundIt->second->set3DAttributes(&newAttributes));
-}
 
 FMOD_VECTOR AudioEngine::VectorToFmod(const glm::vec3& vPosition)
 {

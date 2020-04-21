@@ -11,7 +11,8 @@ public:
 		Tutorial,
 		WaitingToCast,
 		WaitingForBite,
-		Reeling
+		Reeling,
+		FishCaught
 	};
 
 	Game();
@@ -25,6 +26,7 @@ public:
 	void ChangeToWaitingToCast();
 	void ChangeToWaitingForBite();
 	void ChangeToReeling();
+	void ChangeToFishCaught();
 
 private:
 	//NOTE: ALL TIMERS ARE IN SECONDS
@@ -44,7 +46,7 @@ private:
 
 	glm::vec3 castDirection;
 
-	const float TUTORIAL_TIME = 10.0f; //tutorial length
+	const float TUTORIAL_TIME = 1.0f; //tutorial length
 	float tutorialCountdown   = TUTORIAL_TIME;
 
 	bool isCasting;
@@ -55,6 +57,9 @@ private:
 	const float MIN_BITE_WAIT = 1.5f;  //min wait time for a bite after casting
 	const float MAX_BITE_WAIT = 12.0f; //max wait time for a bite after casting
 	float biteWaitCountdown;
+
+	const float maxTension = 10.0f;
+	float tensionTime = 0.0f;
 
 	bool isBite;
 
