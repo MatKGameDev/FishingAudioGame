@@ -18,6 +18,15 @@ public:
 		Sturgeon
 	};
 
+	enum Rarity
+	{
+		Common,
+		Uncommon,
+		Rare,
+		SuperRare,
+		ExtremelyRare
+	};
+
 	static const int NUM_FISH_TYPES = 9;
 
 	Fish(FishType fishType, glm::vec3 startPosition);
@@ -25,6 +34,7 @@ public:
 	void Update(float dt);
 
 	FishType type;
+	Rarity   rarity;
 
 	float weight;
 	float stamina;
