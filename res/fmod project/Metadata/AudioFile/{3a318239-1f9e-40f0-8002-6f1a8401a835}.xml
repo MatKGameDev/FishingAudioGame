@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3a318239-1f9e-40f0-8002-6f1a8401a835}">
+		<property name="assetPath">
+			<value>PeelingLine.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.8716875000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f61d964d-6db6-4e3a-bc84-1aa48eb60e87}</destination>
+		</relationship>
+	</object>
+</objects>

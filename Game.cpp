@@ -23,10 +23,10 @@ void Game::Init()
 	audioEngine.LoadBank("Master", FMOD_STUDIO_LOAD_BANK_NORMAL);
 
 	//load event
-	audioEngine.LoadEvent("Music", "{13f73348-5181-4c6b-838a-4ef9f8ad1b56}");
+	audioEngine.LoadEvent("Background", "{b2ec4fbd-7944-4704-bdf9-7991edc77827}");
 
 	//play event
-	audioEngine.PlayEvent("Music");
+	audioEngine.PlayEvent("Background");
 
 	//set position
 	//audioEngine.SetEventPosition("Music", startPosition);
