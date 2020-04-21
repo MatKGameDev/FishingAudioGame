@@ -4,7 +4,7 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 {
 	moveDirection = glm::vec3(
 		rand() % 9 + 1, 
-		0.0f, 
+		0.0f,  
 		-rand() % 9 + 1);
 
 	moveDirection = glm::normalize(moveDirection);
@@ -12,14 +12,14 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 	if (rand() % 2)
 		moveDirection.x *= -1;
 
-	speed = 5.0f;
+	speed = 10.0f;
 
 	switch (fishType)
 	{
 		case FishType::Sunfish:
 		{
 			weight      = 0.53f;
-			stamina     = 2.0f;
+			stamina     = 3.0f;
 			escapeTime  = 1.5f;
 			minDistance = 0;
 
@@ -104,7 +104,7 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 		{
 			weight      = 8.0f;
 			stamina     = 12.0f;
-			escapeTime  = 0.5f;
+			escapeTime  = 0.6f;
 			minDistance = 10;
 
 			rarity = Rarity::ExtremelyRare;
@@ -116,7 +116,7 @@ Fish::Fish(FishType fishType, glm::vec3 startPosition) : type(fishType), positio
 		{
 			weight      = 12.0f;
 			stamina     = 15.0f;
-			escapeTime  = 0.3f;
+			escapeTime  = 0.4f;
 			minDistance = 13;
 
 			rarity = Rarity::ExtremelyRare;
@@ -130,5 +130,6 @@ void Fish::Update(float dt)
 {
 	stamina -= dt;
 
-	position += speed * moveDirection * dt;
+	if (stamina > 0.0f)
+		position += speed * moveDirection * dt;
 }

@@ -1,0 +1,40 @@
+[2020-04-20 17:28:54.977] [APP] [info] Status: 1
+[2020-04-20 17:28:54.978] [APP] [info] Status: 1
+[2020-04-20 17:28:54.979] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 4 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.981] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 5 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.981] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 6 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.981] [APP] [info] Status: 1
+[2020-04-20 17:28:54.982] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 7 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.982] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 8 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.985] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 9 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:54.985] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 10 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:55.791] [APP] [info] [DEBUG] Buffer detailed info: Based on the usage hint and actual usage, buffer object 7 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), usage hint is GL_STREAM_DRAW) will be configured as STREAM.
+[2020-04-20 17:28:55.791] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 7 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), usage hint is GL_STREAM_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:55.793] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 7 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), usage hint is GL_STREAM_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:57.901] [APP] [info] [DEBUG] Buffer detailed info: Based on the usage hint and actual usage, buffer object 9 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), and GL_ARRAY_BUFFER_ARB, usage hint is GL_STREAM_DRAW) will be configured as STREAM.
+[2020-04-20 17:28:57.902] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 9 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), and GL_ARRAY_BUFFER_ARB, usage hint is GL_STREAM_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 17:28:57.903] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 9 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), and GL_ARRAY_BUFFER_ARB, usage hint is GL_STREAM_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 23:47:34.774] [APP] [info] Status: 1
+[2020-04-20 23:47:34.774] [APP] [info] Status: 1
+[2020-04-20 23:47:34.775] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 4 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 23:47:34.776] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 5 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 23:47:34.776] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 6 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-20 23:47:34.777] [APP] [info] Status: 1
+[2020-04-21 00:43:21.054] [APP] [info] Status: 1
+[2020-04-21 00:43:21.055] [APP] [info] Status: 1
+[2020-04-21 00:43:21.055] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 4 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:43:21.057] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 5 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:43:21.057] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 6 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:43:21.057] [APP] [info] Status: 1
+[2020-04-21 00:44:40.160] [APP] [info] Status: 1
+[2020-04-21 00:44:40.160] [APP] [info] Status: 1
+[2020-04-21 00:44:40.160] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 4 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:44:40.162] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 5 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:44:40.162] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 6 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:44:40.163] [APP] [info] Status: 1
+[2020-04-21 00:45:01.212] [APP] [info] Status: 1
+[2020-04-21 00:45:01.215] [APP] [info] Status: 1
+[2020-04-21 00:45:01.216] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 4 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:45:01.218] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 5 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:45:01.218] [APP] [info] [DEBUG] Buffer detailed info: Buffer object 6 (bound to GL_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+[2020-04-21 00:45:01.218] [APP] [info] Status: 1

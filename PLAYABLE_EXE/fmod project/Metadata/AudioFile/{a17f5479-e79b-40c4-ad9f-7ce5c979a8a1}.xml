@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a17f5479-e79b-40c4-ad9f-7ce5c979a8a1}">
+		<property name="assetPath">
+			<value>SecondPlop.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.40799999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f61d964d-6db6-4e3a-bc84-1aa48eb60e87}</destination>
+		</relationship>
+	</object>
+</objects>

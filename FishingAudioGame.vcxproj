@@ -109,10 +109,10 @@
     <ClInclude Include="src\AudioEngine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="src\Fish.cpp" />
     <ClCompile Include="src\FishManager.cpp" />
     <ClCompile Include="src\AudioEngine.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

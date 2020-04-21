@@ -46,7 +46,7 @@ private:
 
 	glm::vec3 castDirection;
 
-	const float TUTORIAL_TIME = 1.0f; //tutorial length
+	const float TUTORIAL_TIME = 56.0f; //tutorial length
 	float tutorialCountdown   = TUTORIAL_TIME;
 
 	bool isCasting;
@@ -58,7 +58,7 @@ private:
 	const float MAX_BITE_WAIT = 12.0f; //max wait time for a bite after casting
 	float biteWaitCountdown;
 
-	const float maxTension = 10.0f;
+	const float maxTension = 8.0f;
 	float tensionTime = 0.0f;
 
 	bool isBite;

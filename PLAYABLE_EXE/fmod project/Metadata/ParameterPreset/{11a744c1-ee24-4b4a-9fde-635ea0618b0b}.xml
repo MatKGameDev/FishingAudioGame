@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{11a744c1-ee24-4b4a-9fde-635ea0618b0b}">
+		<property name="name">
+			<value>Reeling</value>
+		</property>
+		<relationship name="folder">
+			<destination>{574973f3-c6c9-452d-83af-438b98b9f547}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cb7c5024-4a2d-4404-badb-a4337db17f04}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cb7c5024-4a2d-4404-badb-a4337db17f04}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>4.2000002861022949</value>
+		</property>
+	</object>
+</objects>
