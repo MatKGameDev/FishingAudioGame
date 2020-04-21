@@ -2,7 +2,7 @@
 
 FishManager::FishManager()
 {
-
+	activeFish = nullptr;
 }
 
 FishManager::~FishManager()
@@ -12,7 +12,8 @@ FishManager::~FishManager()
 
 void FishManager::Update(float dt)
 {
-	activeFish->Update(dt);
+	if (activeFish != nullptr)
+		activeFish->Update(dt);
 }
 
 void FishManager::SpawnRandomFish(glm::vec3 position, int castDistance)

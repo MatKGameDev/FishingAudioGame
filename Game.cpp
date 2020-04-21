@@ -39,6 +39,8 @@ void Game::Init()
 
 void Game::Update(float dt)
 {
+	fishManager->Update(dt);
+
 	switch (gameState)
 	{
 		case GameState::Tutorial:
